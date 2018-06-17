@@ -1,0 +1,13 @@
+{
+  "name": "event-app",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies":{
+	"clipboard":"^1.5.12",
+	"jquery-ui":"^1.12.1",	
+	"bootstrap":"^3.3.7"
+  }
+}

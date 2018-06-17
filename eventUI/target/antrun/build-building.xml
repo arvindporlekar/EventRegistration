@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="building"  >
+<target name="building">
+  <exec failonerror="true" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c npm -v"/>
+  </exec>
+  <exec failonerror="true" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c npm config ls"/>
+  </exec>
+  <exec failonerror="true" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c npm install"/>
+  </exec>
+  <exec failonerror="true" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c bower install"/>
+  </exec>
+  <exec failonerror="true" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c ng -v"/>
+  </exec>
+  <exec resultproperty="cmdresult" dir="E:\5.study\3.Assignment\2.HackerEarthExamples\1.Varien\dev\EventRegistration\eventUI/event-app" executable="cmd" osfamily="windows">
+    <arg line="/c ng build"/>
+  </exec>
+  <condition property="cmdsuccess">
+    <equals arg2="0" arg1="${cmdresult}"></equals>
+  </condition>
+  <fail unless="cmdsuccess"/>
+</target>
+</project>
