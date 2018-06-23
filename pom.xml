@@ -166,10 +166,6 @@
 		</pluginManagement>
 	</build>
 	<modules>
-		<module>eventBatch</module>
-		<module>eventPersistenceUnit</module>
-		<module>eventServer</module>
-		<module>eventResource</module>
 		<module>eventUI</module>
 		<module>eventWeb</module>
 	</modules>
