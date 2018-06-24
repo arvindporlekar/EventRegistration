@@ -12,26 +12,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.event.app</groupId>
-			<artifactId>eventBatch</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.event.app</groupId>
-			<artifactId>eventPersistenceUnit</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.event.app</groupId>
-			<artifactId>eventResource</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.event.app</groupId>
-			<artifactId>eventServer</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.event.app</groupId>
 			<artifactId>eventUI</artifactId>
 			<version>${project.version}</version>
 			<type>pom</type>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+ http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+ http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<context:property-placeholder />
+	<context:annotation-config />
+	<context:component-scan base-package="com.event" />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<bean id="datasource" class="org.springframework.jndi.JndiObjectFactoryBean"
+		lazy-init="true">
+		<property name="jndiName" value="jdbc/EventDB" />
+		<property name="resourceRef" value="true" />
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistanceUnitName" value="eventPersistenceUnit" />
+		<property name="jpaVendorAdapter">
+			<bean
+				class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="false" />
+			</bean>
+		</property>
+
+		<property name="jpsDialect">
+			<bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect">
+				<property name="datasource" ref="datasource"></property>
+			</bean>
+		</property>
+
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="eclipselink.jdbc.native-sql" value="true" />
+				<entry key="eclipselink.cache.shared.default" value="false" />
+				<!-- <entry key="eclipselink.logging.logger" value="org.eclipse.persistence.logging.Log4jSessionLog" /> -->
+				<entry key="eclipselink.jdbc.batch-writing" value="JDBC" />
+				<entry key="eclipselink.loggin.exceptions" value="true" />
+				<entry key="eclipselink.weaving" value="false" />
+				<entry key="eclipselink.jpa.uppercase-column-names" value="true" />
+			</map>
+		</property>
+	</bean>
+
+</beans>
